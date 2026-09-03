@@ -6,6 +6,15 @@ import "./Enquiry.css";
 function Enquiry() {
   const [submitted, setSubmitted] = useState(false);
   const [serviceOpen, setServiceOpen] = useState(false);
+  useEffect(() => {
+  if (submitted) {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }
+}, [submitted]);
   const [selectedService, setSelectedService] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
