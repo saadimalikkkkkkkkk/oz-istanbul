@@ -5,31 +5,82 @@ import "./Enquiry.css";
 
 function Enquiry() {
   const [submitted, setSubmitted] = useState(false);
-const [serviceOpen, setServiceOpen] = useState(false);
-const [selectedService, setSelectedService] = useState("");
-const serviceRef = useRef(null);
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
 
-useEffect(() => {
-  const handleClickOutside = (event) => {
-    if (
-      serviceRef.current &&
-      !serviceRef.current.contains(event.target)
-    ) {
-      setServiceOpen(false);
-    }
-  };
+  const serviceRef = useRef(null);
 
-  document.addEventListener("mousedown", handleClickOutside);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        serviceRef.current &&
+        !serviceRef.current.contains(event.target)
+      ) {
+        setServiceOpen(false);
+      }
+    };
 
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-  const handleSubmit = (e) => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Email service will be connected here
-    setSubmitted(true);
+    setSending(true);
+    setError("");
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    formData.append(
+      "access_key",
+      "d5bbe671-e4db-494b-8ef1-681fc714712d"
+    );
+
+    formData.append(
+      "subject",
+      "New Enquiry — Öz Istanbul"
+    );
+
+    formData.append(
+      "from_name",
+      formData.get("name")
+    );
+
+    try {
+      const response = await fetch(
+        "https://api.web3forms.com/submit",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitted(true);
+        form.reset();
+        setSelectedService("");
+      } else {
+        setError(
+          data.message ||
+            "Something went wrong. Please try again."
+        );
+      }
+    } catch (err) {
+      setError(
+        "Unable to send your enquiry. Please check your connection and try again."
+      );
+    } finally {
+      setSending(false);
+    }
   };
 
   if (submitted) {
@@ -91,6 +142,7 @@ useEffect(() => {
 
           <div className="form-field">
             <label htmlFor="name">FULL NAME</label>
+
             <input
               type="text"
               id="name"
@@ -104,6 +156,7 @@ useEffect(() => {
 
             <div className="form-field">
               <label htmlFor="email">EMAIL ADDRESS</label>
+
               <input
                 type="email"
                 id="email"
@@ -114,7 +167,10 @@ useEffect(() => {
             </div>
 
             <div className="form-field">
-              <label htmlFor="phone">PHONE / WHATSAPP</label>
+              <label htmlFor="phone">
+                PHONE / WHATSAPP
+              </label>
+
               <input
                 type="tel"
                 id="phone"
@@ -127,67 +183,77 @@ useEffect(() => {
           </div>
 
           <div className="form-field">
-  <label>WHAT ARE YOU INTERESTED IN?</label>
+            <label>WHAT ARE YOU INTERESTED IN?</label>
 
-  <div className="custom-select" ref={serviceRef}>
-    <button
-      type="button"
-      className={`custom-select-trigger ${
-        serviceOpen ? "open" : ""
-      } ${selectedService ? "selected" : ""}`}
-      onClick={() => setServiceOpen(!serviceOpen)}
-    >
-      <span>
-        {selectedService || "Select a service"}
-      </span>
+            <div
+              className="custom-select"
+              ref={serviceRef}
+            >
+              <button
+                type="button"
+                className={`custom-select-trigger ${
+                  serviceOpen ? "open" : ""
+                } ${selectedService ? "selected" : ""}`}
+                onClick={() =>
+                  setServiceOpen(!serviceOpen)
+                }
+              >
+                <span>
+                  {selectedService ||
+                    "Select a service"}
+                </span>
 
-      <ArrowIcon
-  className={`custom-select-arrow arrow-icon ${
-    serviceOpen ? "open" : ""
-  }`}
-/>
-    </button>
+                <ArrowIcon
+                  className={`custom-select-arrow arrow-icon ${
+                    serviceOpen ? "open" : ""
+                  }`}
+                />
+              </button>
 
-    {serviceOpen && (
-      <div className="custom-select-menu">
-        {[
-          "Real Estate & Investment",
-          "Construction & Development",
-          "Education & Language",
-          "Tourism & Health Tourism",
-          "Trading & International Commerce",
-          "Business & Investment",
-          "Other",
-        ].map((service) => (
-          <button
-            type="button"
-            key={service}
-            className={`custom-select-option ${
-              selectedService === service ? "active" : ""
-            }`}
-            onClick={() => {
-              setSelectedService(service);
-              setServiceOpen(false);
-            }}
-          >
-            <span>{service}</span>
-            <ArrowIcon className="arrow-icon" />
-          </button>
-        ))}
-      </div>
-    )}
+              {serviceOpen && (
+                <div className="custom-select-menu">
+                  {[
+                    "Real Estate & Investment",
+                    "Construction & Development",
+                    "Education & Language",
+                    "Tourism & Health Tourism",
+                    "Trading & International Commerce",
+                    "Business & Investment",
+                    "Other",
+                  ].map((service) => (
+                    <button
+                      type="button"
+                      key={service}
+                      className={`custom-select-option ${
+                        selectedService === service
+                          ? "active"
+                          : ""
+                      }`}
+                      onClick={() => {
+                        setSelectedService(service);
+                        setServiceOpen(false);
+                      }}
+                    >
+                      <span>{service}</span>
+                      <ArrowIcon className="arrow-icon" />
+                    </button>
+                  ))}
+                </div>
+              )}
 
-    <input
-      type="hidden"
-      name="service"
-      value={selectedService}
-      required
-    />
-  </div>
-</div>
+              <input
+                type="hidden"
+                name="service"
+                value={selectedService}
+                required
+              />
+            </div>
+          </div>
 
           <div className="form-field">
-            <label htmlFor="message">YOUR ENQUIRY</label>
+            <label htmlFor="message">
+              YOUR ENQUIRY
+            </label>
 
             <textarea
               id="message"
@@ -198,9 +264,30 @@ useEffect(() => {
             ></textarea>
           </div>
 
-          <button type="submit" className="enquiry-submit">
-            <span>Send Enquiry</span>
-            <ArrowIcon className="arrow-icon" />
+          {error && (
+            <p
+              style={{
+                marginTop: "10px",
+                color: "#d71919",
+                fontSize: "13px",
+              }}
+            >
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="enquiry-submit"
+            disabled={sending}
+          >
+            <span>
+              {sending ? "Sending..." : "Send Enquiry"}
+            </span>
+
+            {!sending && (
+              <ArrowIcon className="arrow-icon" />
+            )}
           </button>
 
         </form>
