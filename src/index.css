@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
+
+/* ========================================
+   GLOBAL RESET
+======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000000;
+}
+
+body {
+  margin: 0;
+
+  background: #000000;
+  color: #ffffff;
+
+  font-family: 'Manrope', sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+
+/* ========================================
+   GLOBAL TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+}
+
+p,
+a,
+button,
+span {
+  font-family: 'Manrope', sans-serif;
+}
+
+
+/* ========================================
+   SELECTION
+======================================== */
+
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+
+/* ========================================
+   SCROLLBAR
+======================================== */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+/* =========================================
+   GLOBAL WEBSITE SCALE
+   Change these values to resize the site
+========================================= */
+
+:root {
+  /* Main heading scale */
+ --global-heading-xl: clamp(2.8rem, 4.8vw, 5rem);
+--global-heading-lg: clamp(2.2rem, 3.5vw, 4rem);
+--global-heading-md: clamp(1.6rem, 2.2vw, 2.5rem);
+
+  /* Body text */
+  --global-text-lg: 1.1rem;
+  --global-text-md: 1rem;
+  --global-text-sm: 0.875rem;
+
+  /* Vertical spacing */
+  --global-section-padding: 100px;
+  --global-section-padding-small: 70px;
+
+  /* Content width */
+  --global-container-width: 1400px;
+}
+
+
+/* =========================================
+   GLOBAL HEADING SCALE
+========================================= */
+
+main h1 {
+  font-size: var(--global-heading-xl) !important;
+}
+
+main h2 {
+  font-size: var(--global-heading-lg) !important;
+}
+
+main h3 {
+  font-size: var(--global-heading-md) !important;
+}
+
+
+/* =========================================
+   GLOBAL BODY TEXT
+========================================= */
+
+main p {
+  font-size: var(--global-text-md);
+}
+
+
+/* =========================================
+   GLOBAL SECTION SPACING
+========================================= */
+
+main section {
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   MOBILE SCALE
+========================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --global-heading-xl: clamp(2.7rem, 11vw, 4.5rem);
+    --global-heading-lg: clamp(2.2rem, 9vw, 3.5rem);
+    --global-heading-md: clamp(1.7rem, 7vw, 2.5rem);
+
+    --global-text-lg: 1rem;
+    --global-text-md: 0.95rem;
+
+    --global-section-padding: 70px;
+    --global-section-padding-small: 50px;
+  }
+}
+/* ========================================
+   GLOBAL ARROW ICON
+======================================== */
+
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+
+  display: inline-block;
+  flex-shrink: 0;
+
+  fill: none;
+
+  stroke: currentColor;
+  stroke-width: 1.5;
+
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
+}

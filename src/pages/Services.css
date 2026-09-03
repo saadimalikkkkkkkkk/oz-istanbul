@@ -1,0 +1,899 @@
+/* ========================================
+   SERVICES PAGE
+======================================== */
+
+.services-page {
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+
+/* ========================================
+   SHARED SECTION LABEL
+======================================== */
+
+.services-section-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+  position: absolute;
+  left: 5%;
+  top: 0;
+}
+
+.services-section-label span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.services-section-label p {
+  margin: 0;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.services-hero {
+  position: relative;
+
+  min-height: 100vh;
+  width: 100%;
+
+  padding: 180px 5% 120px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* DARK OVERLAY */
+
+.services-hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.88) 0%,
+      rgba(0, 0, 0, 0.68) 42%,
+      rgba(0, 0, 0, 0.38) 75%,
+      rgba(0, 0, 0, 0.55) 100%
+    );
+
+  z-index: 1;
+}
+
+
+/* SUBTLE LIGHT */
+
+.services-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 900px;
+  height: 900px;
+
+  right: -20%;
+  top: -35%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.045) 0%,
+    rgba(255, 255, 255, 0.012) 35%,
+    transparent 70%
+  );
+
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.services-hero-meta {
+  position: absolute;
+
+  top: 150px;
+  left: 5%;
+
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  z-index: 3;
+}
+
+.services-hero-meta span:first-child {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+
+.services-hero-content {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  max-width: 1450px;
+}
+
+.services-hero-content h1 {
+  margin: 0;
+
+  font-size: clamp(5rem, 7vw, 8rem);
+  line-height: 0.82;
+
+  font-weight: 500;
+  letter-spacing: -7px;
+}
+
+.services-hero-content h1 span {
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.services-hero-content p {
+  max-width: 570px;
+
+  margin: 65px 0 0;
+
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+
+/* ========================================
+   SERVICES LIST
+======================================== */
+
+.services-list {
+  position: relative;
+
+  width: 100%;
+
+  padding: 180px 5% 190px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.services-content {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+}
+
+
+/* ========================================
+   SERVICE ITEMS
+======================================== */
+
+.service-item {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 70px 1fr 55px;
+  gap: 30px;
+
+  align-items: start;
+
+  padding: 48px 0;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: #ffffff;
+  background: transparent;
+
+  text-decoration: none;
+
+  transition:
+    padding 0.4s ease,
+    background 0.4s ease;
+}
+
+
+/* Make sure React Router links
+   don't inherit browser link styling */
+
+.service-item:link,
+.service-item:visited,
+.service-item:hover,
+.service-item:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+
+.service-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
+/* ========================================
+   SERVICE NUMBER
+======================================== */
+
+.service-number {
+  padding-top: 7px;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* ========================================
+   SERVICE CONTENT
+======================================== */
+
+.service-main {
+  padding-right: 50px;
+}
+
+.service-main h2 {
+  margin: 0;
+
+  font-size: clamp(2.5rem, 4vw, 4.5rem);
+  line-height: 0.95;
+
+  font-weight: 500;
+  letter-spacing: -2.5px;
+
+  color: #ffffff;
+
+  transition: transform 0.35s ease;
+}
+
+.service-main p {
+  max-width: 560px;
+
+  margin: 20px 0 0;
+
+  font-size: 14px;
+  line-height: 1.75;
+
+  color: rgba(255, 255, 255, 0.4);
+}
+
+
+/* ========================================
+   SERVICE ARROW
+======================================== */
+
+.service-arrow {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  background: transparent;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 17px;
+  line-height: 1;
+
+  text-decoration: none;
+
+  transition:
+    background 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.35s ease;
+}
+
+
+/* ========================================
+   SERVICE HOVER
+======================================== */
+
+.service-item:hover {
+  padding-left: 14px;
+
+  background: rgba(255, 255, 255, 0.008);
+}
+
+.service-item:hover .service-main h2 {
+  transform: translateX(5px);
+}
+
+.service-item:hover .service-arrow {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+
+  transform: translate(4px, -4px);
+}
+
+
+/* ========================================
+   CONSULTANCY
+======================================== */
+
+.services-consultancy {
+  position: relative;
+
+  width: 100%;
+
+  padding: 200px 5%;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.consultancy-content {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 100px;
+
+  align-items: start;
+}
+
+.consultancy-content h2 {
+  margin: 0;
+
+  font-size: clamp(5rem, 7vw, 8rem);
+  line-height: 0.84;
+
+  font-weight: 500;
+  letter-spacing: -7px;
+}
+
+.consultancy-content h2 span {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.consultancy-content > p {
+  max-width: 560px;
+
+  margin: 8px 0 0;
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.48);
+}
+
+
+/* ========================================
+   CONSULTANCY GRID
+======================================== */
+
+.consultancy-grid {
+  grid-column: 1 / -1;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  margin-top: 100px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.consultancy-grid > div {
+  min-height: 170px;
+
+  padding: 30px 35px 30px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+
+  transition:
+    padding 0.35s ease,
+    background 0.35s ease;
+}
+
+.consultancy-grid > div:nth-child(even) {
+  padding-left: 35px;
+
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.consultancy-grid > div > span {
+  display: block;
+
+  margin-bottom: 30px;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.consultancy-grid h3 {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  letter-spacing: -0.8px;
+}
+
+.consultancy-grid > div:hover {
+  padding-left: 14px;
+
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.consultancy-grid > div:nth-child(even):hover {
+  padding-left: 49px;
+}
+
+
+/* ========================================
+   FINAL CTA
+======================================== */
+
+.services-final {
+  position: relative;
+
+  width: 100%;
+
+  padding: 210px 5% 230px;
+}
+
+.services-final-content {
+  width: 100%;
+  max-width: 1600px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  gap: 100px;
+
+  align-items: start;
+}
+
+.services-final-content h2 {
+  margin: 0;
+
+  font-size: clamp(5rem, 7vw, 8rem);
+  line-height: 0.83;
+
+  font-weight: 500;
+  letter-spacing: -7px;
+}
+
+.services-final-content h2 span {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.services-final-content > p {
+  max-width: 560px;
+
+  margin: 8px 0 0;
+
+  font-size: 17px;
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.services-final-content > a {
+  grid-column: 1 / -1;
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  gap: 28px;
+
+  margin-top: 35px;
+
+  padding: 12px 0;
+
+  color: #ffffff;
+  background: transparent;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  overflow: hidden;
+
+  transition: gap 0.35s ease;
+}
+
+.services-final-content > a:link,
+.services-final-content > a:visited,
+.services-final-content > a:hover,
+.services-final-content > a:active {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.services-final-content > a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.6);
+
+  transition:
+    transform 0.4s ease,
+    transform-origin 0.4s ease;
+}
+
+.services-final-content > a:hover {
+  gap: 42px;
+}
+
+.services-final-content > a:hover::after {
+  transform: scaleX(0.45);
+  transform-origin: right;
+}
+
+.services-final-content > a span {
+  font-size: 20px;
+
+  transition: transform 0.35s ease;
+}
+
+.services-final-content > a:hover span {
+  transform: translate(4px, -4px);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+
+  .services-hero {
+    padding: 160px 5% 100px;
+  }
+
+  .services-hero-meta {
+    top: 130px;
+  }
+
+  .consultancy-content,
+  .services-final-content {
+    grid-template-columns: 1fr 0.75fr;
+    gap: 60px;
+  }
+
+  .consultancy-content h2 {
+    font-size: clamp(5rem, 9vw, 8rem);
+  }
+
+  .services-final-content h2 {
+    font-size: clamp(5rem, 9vw, 9rem);
+  }
+
+  .service-main h2 {
+    font-size: clamp(2.3rem, 5vw, 4rem);
+  }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+  /* HERO */
+
+  .services-hero {
+    min-height: 100svh;
+
+    padding: 130px 6% 90px;
+
+    background-position: 50% center;
+  }
+
+  .services-hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.72) 55%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+  }
+
+  .services-hero-meta {
+    top: 105px;
+    left: 6%;
+
+    font-size: 9px;
+  }
+
+  .services-hero-content h1 {
+    font-size: clamp(4rem, 18vw, 6.5rem);
+
+    letter-spacing: -3px;
+  }
+
+  .services-hero-content p {
+    max-width: 440px;
+
+    margin-top: 40px;
+
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+
+  /* SECTION LABEL */
+
+  .services-section-label {
+    position: static;
+
+    margin-bottom: 45px;
+  }
+
+
+  /* SERVICES */
+
+  .services-list {
+    padding: 110px 6%;
+  }
+
+
+  /* SERVICE ITEMS */
+
+  .service-item {
+    grid-template-columns: 40px 1fr 40px;
+
+    gap: 15px;
+
+    padding: 34px 0;
+  }
+
+  .service-number {
+    padding-top: 5px;
+  }
+
+  .service-main {
+    padding-right: 10px;
+  }
+
+  .service-main h2 {
+    font-size: clamp(2rem, 8vw, 3rem);
+
+    letter-spacing: -1.2px;
+  }
+
+  .service-main p {
+    margin-top: 16px;
+
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .service-arrow {
+    width: 36px;
+    height: 36px;
+
+    font-size: 15px;
+  }
+
+  .service-item:hover {
+    padding-left: 5px;
+  }
+
+
+  /* CONSULTANCY */
+
+  .services-consultancy {
+    padding: 115px 6%;
+  }
+
+  .consultancy-content {
+    display: block;
+  }
+
+  .consultancy-content h2 {
+    font-size: clamp(4rem, 17vw, 6.5rem);
+
+    letter-spacing: -3px;
+  }
+
+  .consultancy-content > p {
+    max-width: 440px;
+
+    margin-top: 42px;
+
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .consultancy-grid {
+    grid-template-columns: 1fr;
+
+    margin-top: 70px;
+  }
+
+  .consultancy-grid > div {
+    min-height: auto;
+
+    padding: 27px 0;
+  }
+
+  .consultancy-grid > div:nth-child(even) {
+    padding-left: 0;
+
+    border-left: none;
+  }
+
+  .consultancy-grid > div:hover,
+  .consultancy-grid > div:nth-child(even):hover {
+    padding-left: 5px;
+  }
+
+  .consultancy-grid > div > span {
+    margin-bottom: 20px;
+  }
+
+  .consultancy-grid h3 {
+    font-size: 19px;
+  }
+
+
+  /* FINAL */
+
+  .services-final {
+    padding: 125px 6% 150px;
+  }
+
+  .services-final-content {
+    display: block;
+  }
+
+  .services-final-content h2 {
+    font-size: clamp(4rem, 17vw, 6.5rem);
+
+    letter-spacing: -3px;
+  }
+
+  .services-final-content > p {
+    max-width: 440px;
+
+    margin-top: 42px;
+
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .services-final-content > a {
+    margin-top: 40px;
+  }
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+
+  .services-hero {
+    padding: 120px 5% 75px;
+  }
+
+  .services-hero-meta {
+    left: 5%;
+  }
+
+  .services-hero-content h1 {
+    font-size: 3.7rem;
+
+    letter-spacing: -2px;
+  }
+
+  .services-list {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .services-consultancy {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .services-final {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .service-item {
+    grid-template-columns: 32px 1fr 36px;
+
+    gap: 10px;
+  }
+
+  .service-main h2 {
+    font-size: 20px;
+
+    letter-spacing: -0.7px;
+  }
+
+  .service-main p {
+    font-size: 12px;
+  }
+
+  .service-arrow {
+    width: 32px;
+    height: 32px;
+
+    font-size: 14px;
+  }
+
+  .consultancy-content h2 {
+    font-size: 3.6rem;
+  }
+
+  .consultancy-grid h3 {
+    font-size: 17px;
+  }
+
+  .services-final-content h2 {
+    font-size: 3.6rem;
+  }
+}
+
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .service-item,
+  .service-main h2,
+  .service-arrow,
+  .consultancy-grid > div,
+  .services-final-content > a,
+  .services-final-content > a::after,
+  .services-final-content > a span {
+    transition: none;
+  }
+}

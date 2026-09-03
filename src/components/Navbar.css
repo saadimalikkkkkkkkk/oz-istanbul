@@ -1,0 +1,560 @@
+/* ========================================
+   NAVBAR
+======================================== */
+
+.navbar {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  z-index: 1000;
+
+  background: #000000;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  will-change: transform, opacity;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.4s ease;
+}
+
+
+/* ========================================
+   SCROLL BEHAVIOR
+======================================== */
+
+.navbar-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navbar-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* ========================================
+   CONTAINER
+======================================== */
+
+.navbar-container {
+  position: relative;
+
+  width: 100%;
+  height: 88px;
+
+  padding: 0 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+
+  width: 125px;
+  height: 76px;
+
+  text-decoration: none;
+
+  overflow: hidden;
+
+  flex-shrink: 0;
+}
+
+.navbar-logo img {
+  display: block;
+
+  width: 150px;
+  height: 100px;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   CENTER IMAGE
+======================================== */
+
+.navbar-center-image {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 200px;
+  height: 75px;
+
+  pointer-events: none;
+}
+
+.navbar-center-image img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+
+/* ========================================
+   MENU
+======================================== */
+
+.navbar-menu {
+  position: relative;
+
+  margin-left: auto;
+}
+
+
+/* ========================================
+   HAMBURGER BUTTON
+======================================== */
+
+.navbar-menu-button {
+  width: 34px;
+  height: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+.hamburger-line {
+  display: block;
+
+  width: 34px;
+  height: 1px;
+
+  background: #d42323;
+
+  transform-origin: center;
+
+  transition:
+    width 0.3s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* ========================================
+   HAMBURGER → X
+======================================== */
+
+.navbar-menu-button.open .hamburger-line:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+.navbar-menu-button.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-menu-button.open .hamburger-line:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+
+/* ========================================
+   DROPDOWN
+======================================== */
+
+.navbar-dropdown {
+  position: absolute;
+
+  top: calc(100% + 14px);
+
+  right: 0;
+
+  width: 320px;
+
+  background: #050505;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.75);
+
+  overflow: hidden;
+
+  animation: navbarDropdown 0.22s ease forwards;
+}
+
+
+@keyframes navbarDropdown {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* ========================================
+   DROPDOWN LINKS
+======================================== */
+
+.navbar-dropdown a {
+  display: grid;
+
+  grid-template-columns: 35px 1fr 20px;
+
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 21px 22px;
+
+  border-bottom: 1px solid
+    rgba(255, 255, 255, 0.08);
+
+  color: rgba(255, 255, 255, 0.6);
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    padding 0.25s ease;
+}
+
+.navbar-dropdown a:last-child {
+  border-bottom: none;
+}
+
+
+/* ========================================
+   NUMBER
+======================================== */
+
+.menu-number {
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 9px;
+
+  letter-spacing: 0.1em;
+
+  transition: color 0.25s ease;
+}
+
+
+/* ========================================
+   TEXT
+======================================== */
+
+.navbar-dropdown a strong {
+  font-weight: 400;
+}
+
+
+/* ========================================
+   ARROW
+======================================== */
+
+.menu-arrow {
+  width: 16px;
+  height: 16px;
+
+  display: block;
+
+  justify-self: end;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.5;
+
+  stroke-linecap: square;
+
+  stroke-linejoin: miter;
+
+  flex-shrink: 0;
+
+  transition: transform 0.25s ease;
+}
+
+
+/* ========================================
+   HOVER / ACTIVE
+======================================== */
+
+.navbar-dropdown a:hover,
+.navbar-dropdown a.active {
+  background: #ffffff;
+
+  color: #000000;
+
+  padding-left: 28px;
+}
+
+.navbar-dropdown a:hover .menu-arrow,
+.navbar-dropdown a.active .menu-arrow {
+  transform: translate(3px, -3px);
+}
+
+.navbar-dropdown a:hover .menu-number,
+.navbar-dropdown a.active .menu-number {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+
+/* ========================================
+   LET'S TALK
+======================================== */
+
+.navbar-dropdown .navbar-menu-talk {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 23px 22px;
+
+  background: #db1919;
+
+  color: #000000;
+
+  border-top: 1px solid
+    rgba(255, 255, 255, 0.15);
+
+  font-size: 13px;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    padding 0.25s ease;
+}
+
+.navbar-dropdown .navbar-menu-talk strong {
+  font-weight: 500;
+}
+
+.navbar-dropdown .navbar-menu-talk:hover {
+  background: #ffffff;
+
+  color: #000000;
+
+  padding-left: 22px;
+}
+
+.navbar-dropdown .navbar-menu-talk .menu-arrow {
+  transform: none;
+}
+
+.navbar-dropdown .navbar-menu-talk:hover .menu-arrow {
+  transform: translate(3px, -3px);
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+  .navbar-container {
+    height: 82px;
+
+    padding: 0 5%;
+  }
+
+  .navbar-logo {
+    width: 110px;
+    height: 68px;
+  }
+
+  .navbar-logo img {
+    width: 110px;
+    height: 68px;
+  }
+
+  .navbar-dropdown {
+    width: 290px;
+  }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .navbar-container {
+    height: 72px;
+
+    padding: 0 6%;
+  }
+
+
+  /* CENTER IMAGE */
+
+  .navbar-center-image {
+    width: 100px;
+    height: 45px;
+  }
+
+
+  /* LOGO */
+
+  .navbar-logo {
+    width: 82px;
+    height: 52px;
+  }
+
+  .navbar-logo img {
+    width: 90px;
+    height: 52px;
+  }
+
+
+  /* HAMBURGER */
+
+  .navbar-menu-button {
+    width: 30px;
+    height: 22px;
+  }
+
+  .hamburger-line {
+    width: 30px;
+  }
+
+  .navbar-menu-button.open .hamburger-line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  .navbar-menu-button.open .hamburger-line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+
+  /* DROPDOWN */
+
+  .navbar-dropdown {
+    top: calc(100% + 12px);
+
+    right: 0;
+
+    width: 270px;
+  }
+
+  .navbar-dropdown a {
+    grid-template-columns: 30px 1fr 20px;
+
+    gap: 12px;
+
+    padding: 19px 20px;
+
+    font-size: 13px;
+  }
+
+  .navbar-dropdown a:hover,
+  .navbar-dropdown a.active {
+    padding-left: 26px;
+  }
+
+
+  /* LET'S TALK */
+
+  .navbar-dropdown .navbar-menu-talk {
+    padding: 21px 20px;
+  }
+
+  .navbar-dropdown .navbar-menu-talk:hover {
+    padding-left: 20px;
+  }
+
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 380px) {
+
+  .navbar-container {
+    padding: 0 5%;
+  }
+
+  .navbar-logo {
+    width: 75px;
+    height: 48px;
+  }
+
+  .navbar-logo img {
+    width: 82px;
+    height: 48px;
+  }
+
+  .navbar-dropdown {
+    width: 240px;
+  }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar,
+  .navbar-menu-button,
+  .hamburger-line,
+  .navbar-dropdown,
+  .navbar-dropdown a,
+  .navbar-dropdown .navbar-menu-talk,
+  .menu-arrow {
+    transition: none;
+    animation: none;
+  }
+
+}

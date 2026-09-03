@@ -1,0 +1,390 @@
+.enquiry-page {
+  background: #000;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* HERO */
+
+.enquiry-hero {
+  min-height: 65vh;
+  padding: 150px 8% 100px;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  align-items: end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.enquiry-meta {
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.enquiry-heading h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.92;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.enquiry-heading h1 span {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.enquiry-heading p {
+  max-width: 550px;
+  margin: 40px 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* FORM */
+
+.enquiry-form-section {
+  padding: 100px 8% 130px;
+}
+
+.enquiry-form {
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.form-field {
+  margin-bottom: 55px;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  padding: 15px 0;
+  font-family: inherit;
+  font-size: 1.1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #fff;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 160px;
+}
+
+.form-field select {
+  cursor: pointer;
+  appearance: none;
+}
+
+.form-field select option {
+  background: #000;
+  color: #fff;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+/* BUTTON */
+
+.enquiry-submit {
+  margin-top: 15px;
+  padding: 22px 30px;
+  min-width: 210px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #f50e0e;
+  color: #000;
+  font-family: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.enquiry-submit:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* SUCCESS */
+
+.enquiry-success {
+  min-height: 100vh;
+  padding: 150px 8%;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  align-items: center;
+}
+
+.enquiry-number {
+  align-self: start;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.enquiry-success h1 {
+  margin: 0;
+  font-size: clamp(3.5rem, 6vw, 7rem);
+  line-height: 0.95;
+  font-weight: 400;
+  letter-spacing: -0.05em;
+}
+
+.enquiry-success h1 span {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.enquiry-success p {
+  max-width: 500px;
+  margin: 40px 0;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.8;
+}
+
+.enquiry-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  padding: 18px 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.enquiry-button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+  .enquiry-hero {
+    min-height: 60vh;
+    padding: 120px 7% 70px;
+    display: block;
+  }
+
+  .enquiry-meta {
+    margin-bottom: 80px;
+  }
+
+  .enquiry-heading h1 {
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+
+  .enquiry-heading p {
+    margin-top: 30px;
+    font-size: 0.95rem;
+  }
+
+  .enquiry-form-section {
+    padding: 70px 7% 90px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-field {
+    margin-bottom: 42px;
+  }
+
+  .enquiry-submit {
+    width: 100%;
+  }
+
+  .enquiry-success {
+    padding: 120px 7%;
+    display: block;
+  }
+
+  .enquiry-number {
+    display: block;
+    margin-bottom: 80px;
+  }
+
+  .enquiry-success h1 {
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+}
+/* =========================================
+   CUSTOM SERVICE DROPDOWN
+========================================= */
+
+.custom-select {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.25);
+
+  font-family: inherit;
+  font-size: 1.1rem;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.custom-select-trigger:hover,
+.custom-select-trigger.open {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+.custom-select-trigger.selected {
+  color: #fff;
+}
+
+.custom-select-arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.45);
+
+  transition: transform 0.3s ease;
+}
+
+.custom-select-trigger.open .custom-select-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* DROPDOWN MENU */
+
+.custom-select-menu {
+  position: absolute;
+
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+
+  z-index: 50;
+
+  background: #080808;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+
+  animation: dropdownOpen 0.2s ease forwards;
+}
+
+@keyframes dropdownOpen {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* OPTIONS */
+
+.custom-select-option {
+  width: 100%;
+
+  padding: 20px 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+
+  font-family: inherit;
+  font-size: 0.95rem;
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    padding 0.25s ease;
+}
+
+.custom-select-option:last-child {
+  border-bottom: none;
+}
+
+.custom-select-option:hover {
+  background: #fff;
+  color: #000;
+  padding-left: 28px;
+}
+
+.custom-select-option.active {
+  color: #fff;
+}
+
+.custom-select-option span:last-child {
+  opacity: 0.4;
+}
+
+.custom-select-option:hover span:last-child {
+  opacity: 1;
+}
